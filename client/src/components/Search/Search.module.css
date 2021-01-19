@@ -1,0 +1,30 @@
+.Search {
+  padding: 20px;
+}
+
+.Search input {
+  background: #282c34;
+  height: 50px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 16px;
+  width: 250px;
+}
+
+.ErrorMessage {
+  color: red;
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 500px) {
+  .Search {
+    padding: 20px;
+  }
+  .Search input {
+    width: 400px;
+  }
+}
