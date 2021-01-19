@@ -1,0 +1,22 @@
+{
+  "name": "cryptocurrency-analyzer",
+  "version": "1.0.0",
+  "description": "Crypto Currency analyzer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Prakhar Shukla",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7"
+  }
+}
