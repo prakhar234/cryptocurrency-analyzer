@@ -34,3 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `How does app work`
 
 when both frontend and backend servers are up and running, Go to [http://localhost:5000](http://localhost:5000) to view it in the browser and wait for api calls to succeed. You will see a loading indicator for 2 secs (max). Once the search field is available, search for the bitcoin you want to search by its name or by code. You will see the results in nice cards. Each card will have description about the cryptocurrency you searched for and the rates will be displayed in EUR, AUD, BRL, USD and GBP.
+
+### `App URl`
+
+This app is deployed at [https://afternoon-lowlands-65501.herokuapp.com/](here). Please click on it to visit the app on heroku server.
