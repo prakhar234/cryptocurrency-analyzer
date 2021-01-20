@@ -6,10 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm install`
+### `npm run dev-install-dependencies`
 
-Run npm install after cloning the repository to install all the dependencies required for backend.\
-Go to client directory inside cryptocurrency-analyzer folder and run npm install again to install all the dependencies required for frontend.
+This will install all the dependencies required for both frontend and backend. This is the first script to be run once the repository is cloned.
 
 ### `npm run start`
 
