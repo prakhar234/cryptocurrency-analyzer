@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./Card.module.css";
 import { Price } from "../../Services/CryptoCurrency/CryptoCurrency.model";
 
@@ -36,9 +34,10 @@ const Card: React.FC<CardProps> = (props) => {
                 <div>{symbol} { price.currencyRate.toFixed(2)}</div>
             </div>
         )
-    })
+    });
+    let classes = ['card', styles.Card];
     return (
-        <div className={styles.Card}>
+        <div data-testid="card" className={classes.join(' ')}>
             <div className={styles.CardTitle}>{ title } - { code }</div>
             <h5>Rates: -</h5>
             <div className={styles.CardPrices}>

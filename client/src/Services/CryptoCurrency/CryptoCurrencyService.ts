@@ -9,3 +9,4 @@ const URL_GET_CURRENCY_DATA =
 export const getCryptoCurrencyData = (): Promise<{data: CryptoCurrencyResponse}> => {
   return axios.get(URL_GET_CURRENCY_DATA);
 };
+

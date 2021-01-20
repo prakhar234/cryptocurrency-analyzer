@@ -22,41 +22,40 @@ function App() {
     setLoading(true);
     async function getCurrencyData() {
       try {
-        const data = await getCryptoCurrencyData();
-        const exchangeRates = await getExchangeRates();
+        const [ exchangeRates, data ] = await Promise.all([getExchangeRates(), getCryptoCurrencyData()])
         const currencyData = CryptoCurrencyUtils.transformCryptoCurrencyData(data.data, exchangeRates.data);
         setCurrencyData(currencyData);
         setLoading(false);
 
       } catch(err) {
-        setError('There is a network error! Please try again after some time.');
-        setLoading(false);
+        handleError('There is a network error! Please try again after some time.');
       }
       
     }
     getCurrencyData();
   }, []);
 
+  const handleError = (error: string) => {
+    setError(error);
+    setLoading(false);
+  }
+
   const handleInputChange = (input: string) => {
     setSearchQuery(input);
-    if(input === '') {
-      setSearchResult([]);
+    const searchResult = CryptoCurrencyUtils.searchCryptoCurrencies(input, currencyData);
+    setSearchResult(searchResult);
+    if(searchResult.length === 0 && input !== '' ) {
+      setError(`Please search again! We could not find any crypto currency with name or code ${input}`);
     } else {
-      const searchResult = CryptoCurrencyUtils.searchCryptoCurrencies(input, currencyData);
-      setSearchResult(searchResult);
-      if(searchResult.length === 0 ) {
-        setError(`Please search again! We could not find any crypto currency with ${input}`);
-      } else {
-        setError('');
-      }
+      setError('');
     }
   }
 
   let cardList = null;
   if(searchQuery && searchResult.length) {
     cardList = <CardList cardList={searchResult} />
-  } else if(searchQuery && !searchResult.length) {
-    cardList = <div>{error}</div>
+  } else if(searchQuery && !searchResult.length || error) {
+    cardList = <div className="error-message">{error}</div>
   }
 
   let appContent = null;
@@ -70,12 +69,6 @@ function App() {
         <Search setSearchQuery={handleInputChange} />
         {cardList}
       </React.Fragment>
-    )
-  }
-
-  if(error) {
-    appContent = (
-      <div className="error-message">{error}</div>
     )
   }
 
