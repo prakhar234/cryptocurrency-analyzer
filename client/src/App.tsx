@@ -54,7 +54,7 @@ function App() {
   let cardList = null;
   if(searchQuery && searchResult.length) {
     cardList = <CardList cardList={searchResult} />
-  } else if(searchQuery && !searchResult.length || error) {
+  } else if ((searchQuery && !searchResult.length) || error) {
     cardList = <div className="error-message">{error}</div>
   }
 
