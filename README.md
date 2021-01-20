@@ -37,4 +37,4 @@ when both frontend and backend servers are up and running, Go to [http://localho
 
 ### `App URl`
 
-This app is deployed at [https://afternoon-lowlands-65501.herokuapp.com/](here). Please click on it to visit the app on heroku server.
+This app is deployed at [https://afternoon-lowlands-65501.herokuapp.com/](https://afternoon-lowlands-65501.herokuapp.com/). Please click on it to visit the app on heroku server.
