@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./CardList.module.css";
 import Card from "../Card/Card";
 import { CryptoCurrency } from "../../Services/CryptoCurrency/CryptoCurrency.model";
@@ -17,4 +19,4 @@ const CardList: React.FC<CardListProps> = ({cardList}) => {
     )
 };
 
-export default CardList;
+export default React.memo(CardList);

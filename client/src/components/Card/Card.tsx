@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./Card.module.css";
 import { Price } from "../../Services/CryptoCurrency/CryptoCurrency.model";
 
@@ -35,6 +37,7 @@ const Card: React.FC<CardProps> = (props) => {
             </div>
         )
     });
+    console.log('Hi');
     let classes = ['card', styles.Card];
     return (
         <div data-testid="card" className={classes.join(' ')}>
@@ -48,4 +51,4 @@ const Card: React.FC<CardProps> = (props) => {
     
 };
 
-export default Card;
+export default React.memo(Card);

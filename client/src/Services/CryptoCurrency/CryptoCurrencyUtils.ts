@@ -1,7 +1,14 @@
 import { ExchangeRates } from "../ExchangeRate/ExchangeRate.model";
 import { CryptoCurrency, CryptoCurrencyResponse } from "./CryptoCurrency.model";
 
+interface Memo {
+    [key: string]: CryptoCurrency[]
+}
+
 class CryptoCurrencyUtils {
+
+    // to return momoized results
+    memo: Memo = {}
     
     transformCryptoCurrencyData(data: CryptoCurrencyResponse, exchangeRates: ExchangeRates) {
         let transformedData: CryptoCurrency[] = [];
@@ -29,10 +36,16 @@ class CryptoCurrencyUtils {
         if(input === '') {
             return [];
         }
+        if(this.memo[input]) {
+            return this.memo[input];
+        }
         let result: CryptoCurrency[] = [];
         result = currencyData.filter(currency => {
-            return currency.name.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0 || currency.symbol.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
+            return currency.name.toLocaleLowerCase().indexOf(
+                input.toLocaleLowerCase()) >= 0 || 
+                currency.symbol.toLocaleLowerCase().indexOf(input.toLocaleLowerCase()) >= 0;
         });
+        this.memo[input] = result;
         return result;
     }
 }
